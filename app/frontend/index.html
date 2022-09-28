@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Jquery & Bootstrap Javascript-->
+    <script src="static/"></script>
+    <script src="static//js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js"
+        integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- FontAwesome Kit -->
+    <script src="https://kit.fontawesome.com/6ebfb7f610.js" crossorigin="anonymous"></script>
+    <!-- Popperjs -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.2/dist/umd/popper.min.js"
+        crossorigin="anonymous"></script>
+    <!-- Tempus Dominus JavaScript -->
+    <script src="https://cdn.jsdelivr.net/gh/Eonasdan/tempus-dominus@master/dist/js/tempus-dominus.js"
+        crossorigin="anonymous"></script>
+    <!-- Tempus Dominus Styles -->
+    <link href="https://cdn.jsdelivr.net/gh/Eonasdan/tempus-dominus@master/dist/css/tempus-dominus.css" rel="stylesheet"
+        crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link href="static//css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <!--Bootstrap Icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <title>index</title>
+
+    <style>
+        .hour-btn {
+            color: #ffffff;
+            background-color: transparent;
+            border: 1px solid;
+            border-radius: 3px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-right: 10px;
+            padding-left: 10px;
+        }
+    </style>
+
+</head>
+
+<body class="container-fliud"
+    style="background-image: url(static//img/background.svg); background-size: cover; backdrop-filter: blur(4px);">
+    <header class="container-fluid row justify-content-start" style="margin-bottom: 74px; gap:200px;">
+        <h1 class="py-2">Take your appointment</h1>
+    </header>
+    <main class="container-fluid" style="padding-bottom: 240px;">
+        <section class="row justify-content-center" style="gap:70px;">
+            <div class="col-4">
+                <!--This is the tempus dominus section -->
+                <div class="container">
+                    <h6 class="py-2" style="color: #ffffff;">Tell me when you wanna see me:</h6>
+                    <form class="row" id="appointment-date" style="margin-bottom: 15px;">
+                        <div class="input-group" id="datetimepicker1" data-td-target-input="nearest"
+                            data-td-target-toggle="nearest">
+                            <input id="datetimepicker1Input" type='text' class="form-control"
+                                data-td-target="#datetimepicker1" data-td-toggle="datetimepicker" placeholder="Date"
+                                readonly />
+                        </div>
+                    </form>
+                    <form class="row" id="appointment-time">
+                        <div class="input-group">
+                            <input id="time" type='text' class="form-control" placeholder="Time" readonly />
+                        </div>
+                    </form>
+                </div>
+                <div class="container">
+                    <h6 class="py-2" style="color: #ffffff;">Who are you:</h6>
+                    <form class="row" id="identity" style="gap: 16px;">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="name" placeholder="Full name" />
+                        </div>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="rut1" placeholder="ID number" />
+                        </div>
+                    </form>
+                    <h6 class="py-2" style="color: #ffffff;">How can I contact you:</h6>
+                    <form class="row" id="contact">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="email" placeholder="Email" />
+                        </div>
+                    </form>
+                </div>
+                <div class="container">
+                    <a href="#card-link"><button type="button" id="take-appointment" style=" color: #ffffff; background-color: transparent; border: 2px solid;
+                                border-radius: 5px;padding-top: 5px; padding-bottom: 5px;padding-right: 10px;padding-left:
+                                10px; margin-top: 15px; width: 175px;">Take appointment</button></a>
+                </div>
+            </div>
+            <div class="col-5" style="padding-top: 20px;">
+                <div class="container"
+                    style="border-radius: 5px;padding: 20px; margin-top: 70px;color:#ffffff; background-color: #13283b8e;">
+                    <h4 class="py-2">Available hours</h4>
+                    <table class="table table-borderless" id="schedule-table">
+                        <tbody id="schedule-tbody">
+                            <tr>
+                                <td><button class="btn hour-btn" type="button" id="09" disabled>09:00:00</button></td>
+                                <td><button class="btn hour-btn" type="button" id="10" disabled>10:00:00</button></td>
+                                <td><button class="btn hour-btn" type="button" id="11" disabled>11:00:00</button></td>
+                                <td><button class="btn hour-btn" type="button" id="12" disabled>12:00:00</button></td>
+                                <td><button class="btn hour-btn" type="button" id="13" disabled>13:00:00</button></td>
+                            </tr>
+                            <tr>
+                                <td><button class="btn hour-btn" type="button" id="14" disabled>14:00:00</button></td>
+                                <td><button class="btn hour-btn" type="button" id="15" disabled>15:00:00</button></td>
+                                <td><button class="btn hour-btn" type="button" id="16" disabled>16:00:00</button></td>
+                                <td><button class="btn hour-btn" type="button" id="17" disabled>17:00:00</button></td>
+                                <td><button class="btn hour-btn" type="button" id="18" disabled>18:00:00</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        <a id="card-link"></a>
+        <section class="row justify-content-center" style="margin-top:150px;">
+            <div class="col-5">
+                <div class="card"
+                    style="border-radius: 5px; padding: 20px; color:#ffffff; background-color: #13283b8e;">
+                    <h4 class="py-2">Appointment</h4>
+                    <h6 class="py-2" id="card-name"><strong>Name</strong></h6>
+                    <h6 class="py-2" id="card-email"><strong>Email</strong></h6>
+                    <h6 class="py-2" id="card-date"><strong>Date</strong></h6>
+                    <h6 class="py-2"><strong>Remember that you'll just have one hour!</strong></h6>
+                </div>
+            </div>
+        </section>
+        <section class="row justify-content-center" style="margin-top:150px;">
+            <div class="col-3">
+                <div class="card" id="get-appointment-card"
+                    style="border-radius: 5px; padding: 20px; color:#ffffff; background-color: #13283b8e;">
+                    <h4 class="py-2">Don't you remember when your appointment is?</h4>
+                    <form class="input-group" id="insert-id">
+                        <input type="text" class="form-control" id="rut2" placeholder="ID number" />
+                    </form>
+                    <h6 class="py-2"><strong>Insert your ID number to get your appointment info.</strong></h6>
+                    <a href="#card-link">
+                    <button type="button" id="get-appointment" style=" color: #ffffff; background-color: transparent; border: 2px solid;
+                                border-radius: 5px;padding-top: 5px; padding-bottom: 5px;padding-right: 10px;padding-left:
+                                10px; margin-top: 15px; width: 175px;">Get appointment</button></a>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="card" id="get-appointment-card"
+                    style="border-radius: 5px; padding: 20px; padding-bottom: 35px; color:#ffffff; background-color: #13283b8e;">
+                    <h4 class="py-2">Do you wanna change your appointment?</h4>
+                    <h6 class="py-2">To change your appointment you have to delete it first and then take another
+                        one.<br><br>
+                        Remember! You can only schedule a single appointment.</h6>
+                    </div>
+            </div>
+            <div class="col-3">
+                <div class="card" id="cancel-appointment-card"
+                    style="border-radius: 5px; padding: 20px; color:#ffffff; background-color: #13283b8e;">
+                    <h4 class="py-2">Do you wanna cancel your appointment?</h4>
+                    <form class="input-group">
+                        <input type="text" class="form-control" id="rut3" placeholder="ID number" />
+                    </form>
+                    <h6 class="py-2"><strong>Insert your ID number to cancel your appointment.</strong></h6>
+                    <button type="button" id="cancel-appointment" style=" color: #FFFFFF; background-color: transparent; border: 2px solid;
+                                border-radius: 5px;padding-top: 5px; padding-bottom: 5px;padding-right: 10px;padding-left:
+                                10px; margin-top: 15px; width: 175px;">Cancel appointment</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class=" container-fluid" style="background-color: #13283bfa; color: #ffffff; padding: 70px;">
+            <div class="row justify-content-center">
+                <div class="col-2">
+                    <img src="">
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-2">
+                    <h6 class="py-2">&copy;Developed by <strong>mativimu.</strong></h6>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--Custom Javascript-->
+    <script src="static//js/tempus.dominus.config.js"></script>
+    <script src="static//js/available.hours.js"></script>
+    <script src="static//js/take.appointment.js"></script>
+    <script src="static//js/get.appointment.js"></script>
+    <script src="static//js/cancel.appointment.js"></script>
+
+</body>
+
+</html>
+
+<!--<i class="fa-regular fa-calendar" style="color: #042a51;">-->
