@@ -1,9 +1,7 @@
 from dotenv import load_dotenv
 import os
 
-
 load_dotenv()
-
 
 class Config:
 
@@ -11,7 +9,6 @@ class Config:
 
     def __repr__(this):
         return 'Config(SECRET_KEY={0})'.format(this.SECRET_KEY)
-
 
 class MySQLConnectionConfig(Config):
 

@@ -3,17 +3,12 @@ from flask_mysqldb import MySQL
 from flask_cors import CORS
 from configs import MySQLConnectionConfig
 
-
 app = Flask(__name__)
-
 db = MySQL(app)
 
 app.config.from_object(MySQLConnectionConfig)
 
-
 CORS(app, resources={r'/*': {"origins": "*"}})
-
-
 @app.route('/appointments', methods=['GET'])
 def getAppointments():
     try:
@@ -38,7 +33,6 @@ def getAppointments():
 
     except Exception as ex:
         return jsonify({'message': 'Error getting appointments'})
-
 
 @app.route('/appointments/<rut>', methods=['GET'])
 def getAppointmentByRut(rut):
@@ -66,7 +60,6 @@ def getAppointmentByRut(rut):
     except Exception as ex:
         return jsonify({'message': 'Error getting the appointments'})
 
-
 @app.route('/not-available-hours/<date>', methods=['GET'])
 def getNotAvailableHours(date):
     try:
@@ -89,7 +82,6 @@ def getNotAvailableHours(date):
 
         return jsonify({'message': 'Error getting available hours'})
 
-
 @app.route('/schedule', methods=['POST'])
 def postAppointment():
     print(request.json['date'])
@@ -108,7 +100,6 @@ def postAppointment():
         # This exception can be caused because of rut, email and/or date already does exist in the table, whitch means,
         # the person is trying to take a second appointnment or the date that wanted is already taken.
 
-
 @app.route('/change-appointment', methods=['PUT'])
 def updateAppointment():
     try:
@@ -125,7 +116,6 @@ def updateAppointment():
         return jsonify({'message': 'Error updating appointment'})
         # This error can be caused because of the rut even doesn't exist, whitch means the person don't even have an appointment,
         # or the date is already taken.
-
 
 @app.route('/cancel-appointment/<rut>', methods=['DELETE'])
 def deleteAppointment(rut):
