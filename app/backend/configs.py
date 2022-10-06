@@ -13,9 +13,9 @@ class Config:
 class MySQLConnectionConfig(Config):
 
     MYSQL_HOST = 'localhost'
-    MYSQL_USER = 'asimov'
-    MYSQL_PASSWORD = 'asimov'
-    MYSQL_DB = 'asimov'
+    MYSQL_USER = 'user'
+    MYSQL_PASSWORD = 'password'
+    MYSQL_DB = 'flask-crud'
     MYSQL_PORT = 3306
 
     def __repr__(self):

@@ -3,10 +3,9 @@ from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
 
 load_dotenv()
-
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://asimov:asimov@localhost/asimov'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://user:password@localhost/flask-crud'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
