@@ -97,7 +97,7 @@ def postAppointment():
 
     except Exception as ex:
         return jsonify({'message': 'Error posting appointment'})
-        # This exception can be caused because of rut, email and/or date already does exist in the table, whitch means,
+        # This exception can be raised because the rut (national id number), email and/or date already exist in the table, whitch means,
         # the person is trying to take a second appointnment or the date that wanted is already taken.
 
 @app.route('/change-appointment', methods=['PUT'])
@@ -114,7 +114,7 @@ def updateAppointment():
 
     except Exception as ex:
         return jsonify({'message': 'Error updating appointment'})
-        # This error can be caused because of the rut even doesn't exist, whitch means the person don't even have an appointment,
+        # This error can be raised because the rut doesn't exist, whitch means the person don't even have an appointment,
         # or the date is already taken.
 
 @app.route('/cancel-appointment/<rut>', methods=['DELETE'])
